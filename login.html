@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discord | Login</title>
+    <link rel="stylesheet" href="./css/log_in_out.css" />
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="background">
+        <img
+          src="./images/assets/final_login_bg.png"
+          alt=""
+          class="background__image"
+        />
+      </div>
+
+      <div class="login__card">
+        <div class="login__card__left">
+          <div class="login__card__left__header">
+            <div class="login__card__left__header__title">Welcome back!</div>
+            <div class="login__card__left__header__body">
+              We're so excited to see you again!
+            </div>
+          </div>
+          <div class="login__card__left__from">
+            <div class="login__card__left__from__email">
+              <div class="login__card__left__from__label">
+                Email or phone number
+              </div>
+              <input
+                type="text"
+                class="login__card__left__from__input"
+                id="emailOrPhone"
+              />
+            </div>
+            <div class="login__card__left__from__password">
+              <div class="login__card__left__from__label">Password</div>
+              <input
+                type="password"
+                class="login__card__left__from__input"
+                id="password"
+              />
+              <div class="form__links">
+                <a href="#" class="login__card__left__from__link"
+                  >Forgot your password?</a
+                >
+              </div>
+            </div>
+            <button
+              class="login__card__left__from__loginbtn"
+              id="loginButton"
+            >
+              Login
+            </button>
+            <div id="errorMessage" class="error-message"></div>
+            <div class="form__links">
+              Need an account?
+              <a href="#" class="login__card__left__from__text">Register</a>
+            </div>
+          </div>
+        </div>
+        <div class="login__card__right">
+          <div class="animationdiv">
+            <div class="box1"></div>
+            <div class="box2"></div>
+          </div>
+          <div class="qr__div">
+            <img
+              src="./images/assets/qr_code.png"
+              alt="qr-image"
+              class="login__card__right__qrimg"
+            />
+            <img
+              class="login__card__right__qrimg__circle"
+              src="./images/assets/discordlogo.png"
+              alt="discord-logo"
+            />
+          </div>
+          <div class="login__card__right__msg">
+            <div class="login__card__right__msg__title">
+              Log in with QR Code
+            </div>
+            <div class="login__card__right__msg__body">
+              Scan with <b>Discord mobile app</b> to login instantly
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <img
+        src="./images/assets/discord_fulllogo.svg"
+        alt="discord-logo"
+        class="discord__logo"
+      />
+    </div>
+    <script>
+      document.getElementById("loginButton").addEventListener("click", function (event) {
+        event.preventDefault();
+        const emailOrPhone = document.getElementById("emailOrPhone").value;
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("errorMessage");
+
+        if (
+          (emailOrPhone === "eng23cs0371@dsu.edu.in" ||
+            emailOrPhone === "1234567890") &&
+          password === "12345"
+        ) {
+          errorMessage.style.color = "green";
+          errorMessage.textContent = "Login successful!";
+          // Redirect to dashboard
+          window.location.href = "dashboard.html";
+        } else {
+          errorMessage.style.color = "red";
+          errorMessage.textContent =
+            "Invalid email/phone number or password. Please try again.";
+        }
+      });
+    </script>
+  </body>
+</html>
